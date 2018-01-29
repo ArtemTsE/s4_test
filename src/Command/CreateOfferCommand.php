@@ -26,7 +26,6 @@ class CreateOfferCommand extends Command
         OutputInterface $output
     ) {
         $output->writeln('Creating an offer...');
-        $output_message = 'Success! An offer created!';
 
         $options = [
             CURLOPT_URL => 'http://www.symfony4_test.local/api/offer',
@@ -41,10 +40,6 @@ class CreateOfferCommand extends Command
         try {
             $curl_wrapper->getQueryResult($options);
         } catch (CurlWrapperException $e) {
-            $output_message = 'Failure! Can not create an Offer!';
         }
-
-        $output->writeln(' - created offer Id');
-        $output->writeln($output_message);
     }
 }

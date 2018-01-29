@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\Constraints as OfferAssert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OfferRepository")
@@ -33,13 +34,18 @@ class Offer
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @OfferAssert\CountryCodesAlpha2
      */
     private $countries;
 
     //payout
 
     /**
-     * @ORM\Column(type="string", columnDefinition="enum('Adnroid', 'iOS')")
+     * @ORM\Column(type="string", columnDefinition="enum('Android', 'iOS')")
+     * @Assert\Choice(
+     *     choices = { "Android", "iOS" },
+     *     message = "Choose either 'Android' or 'iOS'"
+     * )
      */
     private $platform;
 

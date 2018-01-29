@@ -59,6 +59,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "league/iso3166": {
+        "version": "2.1.0"
+    },
     "metaer/curl-wrapper-bundle": {
         "version": "0.1.0"
     },
